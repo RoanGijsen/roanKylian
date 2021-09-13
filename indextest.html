@@ -1,1 +1,81 @@
-blablabla3455
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<p>TESTVERSIE</p>
+
+<p>Gok het woord van 5 letters</p>
+<br>
+<p id="LingoWoord">_ _ _ _ _</p>
+<input id="Gok">
+<button id="Gokklik" onclick="Gokklik()">Doe je Gok</button>
+
+<p id="Gegokt"></p>
+
+<span id="s0"></span>
+<span id="s1"></span>
+<span id="s2"></span>
+<span id="s3"></span>
+<span id="s4"></span>
+<button id="voorFelix" onclick="voorFelix()">Voor Felix</button>
+</body>
+</html>
+
+<script>
+    var Woord = ['f', 'i', 'e', 't','s'];
+    function voorFelix()
+    {
+        var DeElementen = document.getElementsByTagName("span");
+        var HetWoord = document.getElementById("Gok").value;
+        for (var x = 0; x < DeElementen.length; x++)
+        {
+            DeElementen[x].innerHTML = HetWoord[x];
+            document.getElementById("s" + x).innerHTML = "Q";
+         if (HetWoord[x] == Woord[x])
+            {
+                DeElementen[x].style.backgroundColor = "green";
+            }
+        }
+    }
+function Gokklik()
+{
+
+
+var Invoer = document.getElementById('Gok').value;
+var s = Invoer.split('');
+
+var Resultaat = "";
+
+for (var i = 0; i <= 4;) 
+{
+    for (var x = 0; x <= 4; x++) 
+    {
+        if (s[i] == Woord[i])
+    {
+        Resultaat = (Resultaat + "2");
+
+        i++;
+    }
+    else if (s[i] == Woord[x])
+    {
+        Resultaat = (Resultaat + "1");
+        i++;
+    }
+    else if (x ==4)
+    {
+        Resultaat = (Resultaat + "0");
+        i++;
+    }
+    }   
+    document.getElementById("Gegokt").innerHTML = Resultaat;
+ // Gegokt = Resultaat;
+}
+
+// /*Lingowoord aanpassen
+
+}
+
+</script>
