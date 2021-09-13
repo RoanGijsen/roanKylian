@@ -24,9 +24,24 @@
 </html>
 
 <script>
+    var Woord = ['f', 'i', 'e', 't','s'];
+    function voorFelix()
+    {
+        var DeElementen = document.getElementsByTagName("span");
+        var HetWoord = document.getElementById("Gok").value;
+        for (var x = 0; x < DeElementen.length; x++)
+        {
+            DeElementen[x].innerHTML = HetWoord[x];
+            document.getElementById("s" + x).innerHTML = "Q";
+         if (HetWoord[x] == Woord[x])
+            {
+                DeElementen[x].style.backgroundColor = "green";
+            }
+        }
+    }
 function Gokklik()
 {
-var Woord = ['f', 'i', 'e', 't','s'];
+
 
 var Invoer = document.getElementById('Gok').value;
 var s = Invoer.split('');
