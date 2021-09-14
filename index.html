@@ -67,12 +67,15 @@ p.denk {
 	padding-right: 42px;
 }
 
+
+
 body   {
     background-image: url("https://www.dutchcowboys.nl/uploads/headers/lingo-app-logo.jpg");
     background-repeat: no-repeat;
     background-attachment:fixed;
     background-position: 50% 230%;
     background-color: rgb(24, 161, 207);
+
     }
 
 </style>
@@ -117,7 +120,8 @@ var Wins = 0;
 var HoeveelWins = document.getElementById("Winstreak");
 
 // Array van lingo woorden
- var Woorden = ["fiets", "banan", "appel", "kerel"];
+ var Woorden = ["fiets", "banan", "appel", "kerel", "water", "beker", "aarde", "boren", "actie", "arena", "buurt", "begaf", "circa", "clubs", "daten", "drank","eiken", "forel", "groet", "graaf", "hobby", "hitte", "icoon", "japan", "krent", "kerst", "liter", "lunch", "maand", "mogen", "noord", "palen", "pasta",
+ "quota", "robot", "ruilt", "spoort", "sterk", "truck", "tijden", "uniek", "vloer", "virus", "woord", "wagen", "zomer", "zoals", "waard", "voedt", "tempo"];
 
          // Kiest een random woord uit de lingo woorden array.
          var randomwoord = Woorden[Math.floor(Math.random() * Woorden.length)];
@@ -130,6 +134,7 @@ function VolgendWoord()
      // Kiest een random woord uit de lingo woorden array.
      randomwoord = Woorden[Math.floor(Math.random() * Woorden.length)];
 
+     // Reset het lingo scherm
      document.getElementById("input1").style.backgroundColor = "";
      document.getElementById("input2").style.backgroundColor = "";
      document.getElementById("input3").style.backgroundColor = "";
@@ -194,12 +199,16 @@ function VolgendWoord()
         Succes();
         PogingenTellen();
     }
+
+
+
     function PogingenTellen()
     {
         Pogingen ++;
         if (Pogingen == 5)
         {
             alert("Helaas volgende keer beter");
+            Wins = 0;
             VolgendWoord()
         } 
     }
@@ -208,15 +217,15 @@ function VolgendWoord()
     function Succes()
     {
         var v = 0;
-for (var k = 0; k < DeElementen.length; k ++)
-        if (DeElementen[k].style.backgroundColor == "green")
-        {
+        for (var k = 0; k < DeElementen.length; k ++)
+            if (DeElementen[k].style.backgroundColor == "green")
+            {
             v++;
             if (v == 5)
             {
                 alert("Succes! Speel opnieuw");
                 Wins ++;
-                
+                HoeveelWins.innerHTML = ("WinStreak " + Wins);
 
 
             }
