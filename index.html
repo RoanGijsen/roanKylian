@@ -151,6 +151,7 @@ var Pogingen = 0;
 var Wins = 0;
 var HoeveelWins = document.getElementById("Winstreak");
 var HoeveelPogingen = document.getElementById("PogingenP");
+HoeveelPogingen.innerHTML = ("Pogingen over " + (5 - Pogingen));
 
 
 // Array van lingo woorden
@@ -165,6 +166,7 @@ var HoeveelPogingen = document.getElementById("PogingenP");
 function VolgendWoord()
 {
     Pogingen = 0;
+    HoeveelPogingen.innerHTML = ("Pogingen over " + (5 - Pogingen));
      // Kiest een random woord uit de lingo woorden array.
      randomwoord = Woorden[Math.floor(Math.random() * Woorden.length)];
 
@@ -191,7 +193,7 @@ function PogingenTellen()
             alert("Helaas volgende keer beter");
             Wins = 0;
             Pogingen = 0;
-            VolgendWoord()
+            VolgendWoord();
         } 
     }
    // Wellicht een optie om 5 variabelen te maken? Per letter 1 en dan vijf variabelen van de raadletters. Dan zouden we heel makkelijk 
@@ -246,18 +248,7 @@ function PogingenTellen()
 
 
 
-    function PogingenTellen()
-    {
-        Pogingen ++;
-        HoeveelPogingen.innerHTML = ("Pogingen " + Pogingen);
-        if (Pogingen == 5)
-        {
-            Pogingen = 0;
-            alert("Helaas volgende keer beter");
-            HoeveelWins.innerHTML = "Winstreak: ";
-            VolgendWoord()
-        } 
-    }
+    
 
    
     function Succes()
@@ -280,4 +271,3 @@ function PogingenTellen()
 
     
 </script>
-    
