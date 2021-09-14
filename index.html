@@ -125,7 +125,7 @@ body   {
     <div class="alles">
         <h1>Lingo!</h1>
         <p id="Winstreak">Winstreak: </p>
-        <p id="Pogingen">Pogingen: </p>
+        <p id="PogingenP">Pogingen: </p>
         <p class="denk">Type in wat je denkt: </p>
 
     
@@ -152,6 +152,7 @@ body   {
 var Pogingen = 0;
 var Wins = 0;
 var HoeveelWins = document.getElementById("Winstreak");
+var HoeveelPogingen = document.getElementById("Pogingenp")
 
 // Array van lingo woorden
  var Woorden = ["fiets", "banan", "appel", "kerel", "water", "beker", "aarde", "boren", "actie", "arena", "buurt", "begaf", "circa", "clubs", "daten", "drank","eiken", "forel", "groet", "graaf", "hobby", "hitte", "icoon", "japan", "krent", "kerst", "liter", "lunch", "maand", "mogen", "noord", "palen", "pasta",
@@ -239,6 +240,7 @@ function VolgendWoord()
     function PogingenTellen()
     {
         Pogingen ++;
+        PogingenP.innerHTML = ("Pogingen: " + 5 - Pogingen);
         if (Pogingen == 5)
         {
             alert("Helaas volgende keer beter");
