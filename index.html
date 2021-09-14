@@ -20,7 +20,17 @@ h1 {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  cursor: pointer;
+  opacity: 1;
+  
+  
 }
+
+
+
+
+
+
 
 #Opnieuw {
   background-color: #0b3797; 
@@ -32,6 +42,7 @@ h1 {
   display: inline-block;
   font-size: 16px;
 }
+
 
 p.denk {
 	text-align: center;
@@ -72,6 +83,7 @@ body   {
         <h1>Lingo!</h1>
     
         <p class="denk">Type in wat je denkt: </p>
+        <p id="Winstreak">Winstreak: </p>
     
         <center>
             <p id="eerste"></p>
@@ -83,7 +95,7 @@ body   {
             <button id="voorFelix" onclick="voorFelix()">Speel nu!</button>
             <button id="Opnieuw" onclick="VolgendWoord()">Opnieuw spelen!</button>
          
-            <p id="Gefaald"></p>
+            
         </center>
     </div>
 
@@ -101,6 +113,8 @@ body   {
 
 // 5 pogingen
 var Pogingen = 0;
+var Wins = 0;
+var HoeveelWins = document.getElementById("Winstreak");
 
 // Array van lingo woorden
  var Woorden = ["fiets", "banan", "appel", "kerel"];
@@ -108,10 +122,26 @@ var Pogingen = 0;
          // Kiest een random woord uit de lingo woorden array.
          var randomwoord = Woorden[Math.floor(Math.random() * Woorden.length)];
          var DeElementen = document.getElementsByTagName("input");
+         
 
 function VolgendWoord()
 {
-    window.location.reload();
+    Pogingen = 0;
+     // Kiest een random woord uit de lingo woorden array.
+     randomwoord = Woorden[Math.floor(Math.random() * Woorden.length)];
+
+     document.getElementById("input1").style.backgroundColor = "";
+     document.getElementById("input2").style.backgroundColor = "";
+     document.getElementById("input3").style.backgroundColor = "";
+     document.getElementById("input4").style.backgroundColor = "";
+     document.getElementById("input5").style.backgroundColor = "";
+
+     document.getElementById('input1').value = '';
+     document.getElementById('input2').value = '';
+     document.getElementById('input3').value = '';
+     document.getElementById('input4').value = '';
+     document.getElementById('input5').value = '';
+
    
 }
 
@@ -146,14 +176,15 @@ function VolgendWoord()
                  }
                 else if (HetWoord[x] == randomwoord[i])
                 {
+                    
                     DeElementen[x].style.backgroundColor = "yellow";
                     x++;
                    
                 }
                 else if (i == DeElementen.length - 1)
                 {
-                    DeElementen[x].style.backgroundColor = "red";
-                  // DeElementen[x].innerHTML = punt;
+                   DeElementen[x].style.backgroundColor = "red";
+                  
                     x++;
                   
                 }
@@ -161,9 +192,9 @@ function VolgendWoord()
             }
         } 
         Succes();
-        Pogingen();
+        PogingenTellen();
     }
-    function Pogingen()
+    function PogingenTellen()
     {
         Pogingen ++;
         if (Pogingen == 5)
@@ -184,6 +215,10 @@ for (var k = 0; k < DeElementen.length; k ++)
             if (v == 5)
             {
                 alert("Succes! Speel opnieuw");
+                Wins ++;
+                
+
+
             }
         }
     }
