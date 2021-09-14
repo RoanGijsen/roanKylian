@@ -85,14 +85,14 @@ body   {
             <button id="voorFelix" onclick="voorFelix()">Speel nu!</button>
             <button id="Opnieuw" onclick="VolgendWoord()">Opnieuw spelen!</button>
          
-    
+            <p id="Gefaald"></p>
         </center>
     </div>
 
 
 
 
-<p id="Gegokt"></p>
+
 
 
 
@@ -101,12 +101,16 @@ body   {
 
 <script>
 
+// 5 pogingen
+var Pogingen = 0;
+
 // Array van lingo woorden
  var Woorden = ["fiets", "banan", "appel", "kerel"];
 
          // Kiest een random woord uit de lingo woorden array.
          var randomwoord = Woorden[Math.floor(Math.random() * Woorden.length)];
-   
+         var DeElementen = document.getElementsByTagName("input");
+
 function VolgendWoord()
 {
     window.location.reload();
@@ -119,12 +123,6 @@ function VolgendWoord()
     function voorFelix()
     {
     
-
-       
-        
-
-
-       var DeElementen = document.getElementsByTagName("input");
         
         var a = document.getElementById("input1").value;
         var b = document.getElementById("input2").value;
@@ -162,10 +160,33 @@ function VolgendWoord()
                   
                 }
             }
-        }
-       
+        } 
+        Succes();
+        Pogingen();
+    }
+    function Pogingen()
+    {
+        Pogingen ++;
+        if (Pogingen == 5)
+        {
+            alert("Helaas volgende keer beter");
+            VolgendWoord()
+        } 
+    }
 
-       
+   
+    function Succes()
+    {
+        var v = 0;
+for (var k = 0; k < DeElementen.length; k ++)
+        if (DeElementen[k].style.backgroundColor == "green")
+        {
+            v++;
+            if (v == 5)
+            {
+                alert("Succes! Speel opnieuw");
+            }
+        }
     }
 
     

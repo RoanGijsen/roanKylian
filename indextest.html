@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>Page Title</title>
@@ -8,6 +8,29 @@
 h1 {
 	text-align: center;
 	font-size: 80px;
+    color: blue;
+}
+
+#voorFelix {
+  background-color: #0daf08; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#Opnieuw {
+  background-color: #0b3797; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 p.denk {
@@ -34,6 +57,15 @@ p.denk {
 	padding-left: 42px;
 	padding-right: 42px;
 }
+
+body   {
+    background-image: url("https://www.dutchcowboys.nl/uploads/headers/lingo-app-logo.jpg");
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position: 50% 230%;
+    background-color: rgb(24, 161, 207);
+    }
+
 </style>
 </head>
 <body>
@@ -50,16 +82,17 @@ p.denk {
             <input maxlength="1" type="text" class="input3" id="input3">
             <input maxlength="1" type="text" class="input4" id="input4">
             <input maxlength="1" type="text" class="input5" id="input5">
-            <button id="voorFelix" onclick="voorFelix()">Voor Felix</button>
+            <button id="voorFelix" onclick="voorFelix()">Speel nu!</button>
+            <button id="Opnieuw" onclick="VolgendWoord()">Opnieuw spelen!</button>
          
-    
+            <p id="Gefaald"></p>
         </center>
     </div>
 
 
 
 
-<p id="Gegokt"></p>
+
 
 
 
@@ -68,15 +101,28 @@ p.denk {
 
 <script>
 
+// 5 pogingen
+var Pogingen = 0;
 
-   var Woord = ['f', 'i', 'e', 't','s'];
+// Array van lingo woorden
+ var Woorden = ["fiets", "banan", "appel", "kerel"];
+
+         // Kiest een random woord uit de lingo woorden array.
+         var randomwoord = Woorden[Math.floor(Math.random() * Woorden.length)];
+         var DeElementen = document.getElementsByTagName("input");
+
+function VolgendWoord()
+{
+    window.location.reload();
+   
+}
 
    // Wellicht een optie om 5 variabelen te maken? Per letter 1 en dan vijf variabelen van de raadletters. Dan zouden we heel makkelijk 
    //if (letter 1 == raad1) documents.... style.background = "green";
 
     function voorFelix()
     {
-        var DeElementen = document.getElementsByTagName("input");
+    
         
         var a = document.getElementById("input1").value;
         var b = document.getElementById("input2").value;
@@ -88,19 +134,19 @@ p.denk {
 
         for (var x = 0; x < DeElementen.length; )
         {
-            //DeElementen[x].innerHTML = HetWoord[x];
+            
             for (var i = 0; i < DeElementen.length; i++) 
            
             {
                 DeElementen[x].innerHTML = HetWoord[x];
           
-                if (HetWoord[x] == Woord[x])
+                if (HetWoord[x] == randomwoord[x])
                  {
                     DeElementen[x].style.backgroundColor = "green";
                     x++;
                    
                  }
-                else if (HetWoord[x] == Woord[i])
+                else if (HetWoord[x] == randomwoord[i])
                 {
                     DeElementen[x].style.backgroundColor = "yellow";
                     x++;
@@ -109,14 +155,38 @@ p.denk {
                 else if (i == DeElementen.length - 1)
                 {
                     DeElementen[x].style.backgroundColor = "red";
+                  // DeElementen[x].innerHTML = punt;
                     x++;
                   
                 }
             }
-        }
-       
+        } 
+        Succes();
+        Pogingen();
+    }
+    function Pogingen()
+    {
+        Pogingen ++;
+        if (Pogingen == 5)
+        {
+            alert("Helaas volgende keer beter");
+            VolgendWoord()
+        } 
+    }
 
-       
+   
+    function Succes()
+    {
+        var v = 0;
+for (var k = 0; k < DeElementen.length; k ++)
+        if (DeElementen[k].style.backgroundColor == "green")
+        {
+            v++;
+            if (v == 5)
+            {
+                alert("Succes! Speel opnieuw");
+            }
+        }
     }
 
     
