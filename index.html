@@ -51,6 +51,8 @@ p.denk {
             <input maxlength="1" type="text" class="input4" id="input4">
             <input maxlength="1" type="text" class="input5" id="input5">
             <button id="voorFelix" onclick="voorFelix()">Voor Felix</button>
+
+            <button id="Opnieuw" onclick="VolgendWoord()">Opnieuw</button>
          
     
         </center>
@@ -68,15 +70,34 @@ p.denk {
 
 <script>
 
+// Array van lingo woorden
+ var Woorden = ["fiets", "banan", "appel", "kerel"];
 
-   var Woord = ['f', 'i', 'e', 't','s'];
+         // Kiest een random woord uit de lingo woorden array.
+         var randomwoord = Woorden[Math.floor(Math.random() * Woorden.length)];
+
+ 
+   
+function VolgendWoord()
+{
+    window.location.reload();
+   
+}
+
+   
 
    // Wellicht een optie om 5 variabelen te maken? Per letter 1 en dan vijf variabelen van de raadletters. Dan zouden we heel makkelijk 
    //if (letter 1 == raad1) documents.... style.background = "green";
 
     function voorFelix()
     {
-        var DeElementen = document.getElementsByTagName("input");
+    
+
+       
+        
+
+
+       var DeElementen = document.getElementsByTagName("input");
         
         var a = document.getElementById("input1").value;
         var b = document.getElementById("input2").value;
@@ -88,19 +109,19 @@ p.denk {
 
         for (var x = 0; x < DeElementen.length; )
         {
-            //DeElementen[x].innerHTML = HetWoord[x];
+            
             for (var i = 0; i < DeElementen.length; i++) 
            
             {
                 DeElementen[x].innerHTML = HetWoord[x];
           
-                if (HetWoord[x] == Woord[x])
+                if (HetWoord[x] == randomwoord[x])
                  {
                     DeElementen[x].style.backgroundColor = "green";
                     x++;
                    
                  }
-                else if (HetWoord[x] == Woord[i])
+                else if (HetWoord[x] == randomwoord[i])
                 {
                     DeElementen[x].style.backgroundColor = "yellow";
                     x++;
@@ -109,6 +130,7 @@ p.denk {
                 else if (i == DeElementen.length - 1)
                 {
                     DeElementen[x].style.backgroundColor = "red";
+                  // DeElementen[x].innerHTML = punt;
                     x++;
                   
                 }
