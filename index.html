@@ -106,7 +106,7 @@ body   {
     border-radius: 2px;
     background-color: lightgreen;
 }
-#Pogingen{
+#PogingenP {
     position: fixed;
     left: 1200px;
     top: 250px;
@@ -114,7 +114,6 @@ body   {
     font-size:larger;
     border-radius: 2px;
     background-color: lightblue;
-
 
 }
 
@@ -127,7 +126,6 @@ body   {
         <p id="Winstreak">Winstreak: </p>
         <p id="PogingenP">Pogingen: </p>
         <p class="denk">Type in wat je denkt: </p>
-
     
         <center>
             <p id="eerste"></p>
@@ -152,7 +150,7 @@ body   {
 var Pogingen = 0;
 var Wins = 0;
 var HoeveelWins = document.getElementById("Winstreak");
-var HoeveelPogingen = document.getElementById("Pogingen");
+var HoeveelPogingen = document.getElementById("PogingenP");
 
 
 // Array van lingo woorden
@@ -246,7 +244,7 @@ function VolgendWoord()
         {
             Pogingen = 0;
             alert("Helaas volgende keer beter");
-            Wins = 0;
+            HoeveelWins.innerHTML = "Winstreak: ";
             VolgendWoord()
         } 
     }
