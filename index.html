@@ -20,18 +20,23 @@ h1 {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  cursor: pointer;
-  opacity: 1;
-  
-  
+  cursor:pointer;
+
+}
+#voorFelix:hover,
+button:focus {
+    background: #166414;
 }
 
+#voorFelix:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
 
+#voorFelix:active {
+    transform: scale(0.99);
 
-
-
-
-
+}
 #Opnieuw {
   background-color: #0b3797; 
   border: none;
@@ -41,12 +46,28 @@ h1 {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  cursor:pointer;
+}
+#Opnieuw:hover,
+button:focus {
+    background: #3553b6;
+}
+
+#Opnieuw:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+
+#Opnieuw:active {
+    transform: scale(0.99);
+
 }
 
 
 p.denk {
 	text-align: center;
-	font-size: 25px;
+	font-size: 29px;
+    font-family: 'Corben';
 }
 
 .input1,.input2,.input3,.input4,.input5 {
@@ -121,7 +142,7 @@ var HoeveelWins = document.getElementById("Winstreak");
 
 // Array van lingo woorden
  var Woorden = ["fiets", "banan", "appel", "kerel", "water", "beker", "aarde", "boren", "actie", "arena", "buurt", "begaf", "circa", "clubs", "daten", "drank","eiken", "forel", "groet", "graaf", "hobby", "hitte", "icoon", "japan", "krent", "kerst", "liter", "lunch", "maand", "mogen", "noord", "palen", "pasta",
- "quota", "robot", "ruilt", "spoort", "sterk", "truck", "tijden", "uniek", "vloer", "virus", "woord", "wagen", "zomer", "zoals", "waard", "voedt", "tempo"];
+ "quota", "robot", "ruilt", "spoort", "sterk", "truck", "boeie", "tijden", "uniek", "vloer", "virus", "woord", "wagen", "zomer", "zoals", "waard", "voedt", "tempo"];
 
          // Kiest een random woord uit de lingo woorden array.
          var randomwoord = Woorden[Math.floor(Math.random() * Woorden.length)];
