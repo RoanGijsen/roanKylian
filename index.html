@@ -8,6 +8,29 @@
 h1 {
 	text-align: center;
 	font-size: 80px;
+    color: blue;
+}
+
+#Spelen {
+  background-color: #0daf08; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#Opnieuw {
+  background-color: #0b3797; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 p.denk {
@@ -34,6 +57,15 @@ p.denk {
 	padding-left: 42px;
 	padding-right: 42px;
 }
+
+body   {
+    background-image: url("https://www.dutchcowboys.nl/uploads/headers/lingo-app-logo.jpg");
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position: 50% 230%;
+    background-color: rgb(24, 161, 207);
+    }
+
 </style>
 </head>
 <body>
@@ -50,8 +82,8 @@ p.denk {
             <input maxlength="1" type="text" class="input3" id="input3">
             <input maxlength="1" type="text" class="input4" id="input4">
             <input maxlength="1" type="text" class="input5" id="input5">
-            <button id="voorFelix" onclick="voorFelix()">Voor Felix</button>
-         
+            <button id="Spelen" onclick="voorFelix()">Speel nu!</button>
+            <button id="Opnieuw" onclick="nieuwspel()">Nieuw spel</button>
     
         </center>
     </div>
@@ -69,8 +101,8 @@ p.denk {
 <script>
 
 
-   var Woord = ['f', 'i', 'e', 't','s'];
-
+   var Woord = ["fiets", "aldus", "bloed"];
+   var random = Woord[Math.floor(Math.random() * Woord.length)];
    // Wellicht een optie om 5 variabelen te maken? Per letter 1 en dan vijf variabelen van de raadletters. Dan zouden we heel makkelijk 
    //if (letter 1 == raad1) documents.... style.background = "green";
 
@@ -94,13 +126,13 @@ p.denk {
             {
                 DeElementen[x].innerHTML = HetWoord[x];
           
-                if (HetWoord[x] == Woord[x])
+                if (HetWoord[x] == random[x])
                  {
                     DeElementen[x].style.backgroundColor = "green";
                     x++;
                    
                  }
-                else if (HetWoord[x] == Woord[i])
+                else if (HetWoord[x] == random[i])
                 {
                     DeElementen[x].style.backgroundColor = "yellow";
                     x++;
