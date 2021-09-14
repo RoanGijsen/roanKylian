@@ -151,7 +151,7 @@ var Pogingen = 0;
 var Wins = 0;
 var HoeveelWins = document.getElementById("Winstreak");
 var HoeveelPogingen = document.getElementById("PogingenP");
-HoeveelPogingen.innerHTML = ("Pogingen over " + (5 - Pogingen));
+HoeveelPogingen.innerHTML = ("Pogingen over: " + (5 - Pogingen));
 
 
 // Array van lingo woorden
@@ -166,7 +166,7 @@ HoeveelPogingen.innerHTML = ("Pogingen over " + (5 - Pogingen));
 function VolgendWoord()
 {
     Pogingen = 0;
-    HoeveelPogingen.innerHTML = ("Pogingen over " + (5 - Pogingen));
+    HoeveelPogingen.innerHTML = ("Pogingen over: " + (5 - Pogingen));
      // Kiest een random woord uit de lingo woorden array.
      randomwoord = Woorden[Math.floor(Math.random() * Woorden.length)];
 
@@ -186,13 +186,14 @@ function VolgendWoord()
 function PogingenTellen()
     {
         Pogingen ++;
-        HoeveelPogingen.innerHTML = ("Pogingen over " + (5 - Pogingen));
+        HoeveelPogingen.innerHTML = ("Pogingen over: " + (5 - Pogingen));
         if (Pogingen == 5)
         {
             Pogingen = 0;
             alert("Helaas volgende keer beter");
             Wins = 0;
-            Pogingen = 0;
+            HoeveelWins.innerHTML = ("WinStreak:  ");
+            
             VolgendWoord();
         } 
     }
@@ -262,7 +263,7 @@ function PogingenTellen()
             {
                 alert("Succes! Speel opnieuw");
                 Wins ++;
-                HoeveelWins.innerHTML = ("WinStreak " + Wins);
+                HoeveelWins.innerHTML = ("WinStreak: " + Wins);
 
 
             }
