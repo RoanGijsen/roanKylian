@@ -61,12 +61,8 @@ p.denk {
 
 <p id="Gegokt"></p>
 
-<span id="s0"></span>
-<span id="s1"></span>
-<span id="s2"></span>
-<span id="s3"></span>
-<span id="s4"></span>
-<button id="voorFelix" onclick="voorFelix()">Voor Felix</button>
+
+
 </body>
 </html>
 
@@ -80,59 +76,48 @@ p.denk {
 
     function voorFelix()
     {
-        var DeElementen = document.getElementsByTagName("span");
-        var HetWoord = document.getElementById("Gok").value;
-        for (var x = 0; x < DeElementen.length; x++)
+        var DeElementen = document.getElementsByTagName("input");
+        
+        var a = document.getElementById("input1").value;
+        var b = document.getElementById("input2").value;
+        var c = document.getElementById("input3").value;
+        var d = document.getElementById("input4").value;
+        var e = document.getElementById("input5").value;
+
+        var HetWoord = [a, b, c, d, e];
+
+        for (var x = 0; x < DeElementen.length; )
         {
-            DeElementen[x].innerHTML = HetWoord[x];
-            document.getElementById("s" + x).innerHTML = "Q";   //<< Q omzetten naar 
-         if (HetWoord[x] == Woord[x])
+            //DeElementen[x].innerHTML = HetWoord[x];
+            for (var i = 0; i < DeElementen.length; i++) 
+           
             {
-                DeElementen[x].style.backgroundColor = "green";
+                DeElementen[x].innerHTML = HetWoord[x];
+          
+                if (HetWoord[x] == Woord[x])
+                 {
+                    DeElementen[x].style.backgroundColor = "green";
+                    x++;
+                   
+                 }
+                else if (HetWoord[x] == Woord[i])
+                {
+                    DeElementen[x].style.backgroundColor = "yellow";
+                    x++;
+                   
+                }
+                else if (i == DeElementen.length - 1)
+                {
+                    DeElementen[x].style.backgroundColor = "red";
+                    x++;
+                  
+                }
             }
-            //Gele versie. 
         }
-        //for (var i = 0; )
+       
 
        
     }
-function Gokklik()
-{
-
-
-var Invoer = document.getElementById('Gok').value;
-var s = Invoer.split('');
-
-var Resultaat = "";
-
-for (var i = 0; i <= 4;) 
-{
-    for (var x = 0; x <= 4; x++) 
-    {
-        if (s[i] == Woord[i])
-    {
-        Resultaat = (Resultaat + "2");
-
-        i++;
-    }
-    else if (s[i] == Woord[x])
-    {
-        Resultaat = (Resultaat + "1");
-        i++;
-    }
-    else if (x ==4)
-    {
-        Resultaat = (Resultaat + "0");
-        i++;
-    }
-    }   
-    document.getElementById("Gegokt").innerHTML = Resultaat;
- // Gegokt = Resultaat;
-}
-
-// /*Lingowoord aanpassen
-
-}
 
     
 </script>
