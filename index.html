@@ -106,7 +106,7 @@ body   {
     border-radius: 2px;
     background-color: lightgreen;
 }
-#PogingenP{
+#PogingenP {
     position: fixed;
     left: 1200px;
     top: 250px;
@@ -124,7 +124,7 @@ body   {
     <div class="alles">
         <h1>Lingo!</h1>
         <p id="Winstreak">Winstreak: </p>
-        <p id="PogingenP">Pogingen over</p>
+        <p id="PogingenP">Pogingen: </p>
         <p class="denk">Type in wat je denkt: </p>
     
         <center>
@@ -136,7 +136,6 @@ body   {
             <input maxlength="1" type="text" class="input5" id="input5">
             <button id="voorFelix" onclick="voorFelix()">Speel nu!</button>
             <button id="Opnieuw" onclick="VolgendWoord()">Opnieuw spelen!</button>
-         
             
         </center>
     </div>
@@ -181,7 +180,9 @@ function VolgendWoord()
      document.getElementById('input2').value = '';
      document.getElementById('input3').value = '';
      document.getElementById('input4').value = '';
-     document.getElementById('input5').value = '';  
+     document.getElementById('input5').value = '';
+
+   
 }
 function PogingenTellen()
     {
