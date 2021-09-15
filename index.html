@@ -161,7 +161,7 @@ HoeveelPogingen.innerHTML = ("Pogingen over: " + (5 - Pogingen));
          // Kiest een random woord uit de lingo woorden array.
          var randomwoord = Woorden[Math.floor(Math.random() * Woorden.length)];
          var DeElementen = document.getElementsByTagName("input");
-         
+         document.getElementById('input1').value = randomwoord[0];
 
 function VolgendWoord()
 {
@@ -177,7 +177,7 @@ function VolgendWoord()
      document.getElementById("input4").style.backgroundColor = "";
      document.getElementById("input5").style.backgroundColor = "";
 
-     document.getElementById('input1').value = '';
+     document.getElementById('input1').value = randomwoord[0];
      document.getElementById('input2').value = '';
      document.getElementById('input3').value = '';
      document.getElementById('input4').value = '';
